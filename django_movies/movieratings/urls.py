@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from app1.views import top_20_movies
 
 
 urlpatterns = [
+    #url(r'^$',),want to create a home page
+    url(r'^toptwenty/', top_20_movies),
     url(r'^admin/', include(admin.site.urls))
+    #url(r'^detail/(?P<movie_id>\d+)'),
 ]

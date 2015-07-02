@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}
+   <h3>Top 20 movies</h3>
+{% endblock %}
+
+{% block body %}
+    {% for all_movies in all_movies.all_movies %}
+       <div><a href="{{movie_title}}">{{movie_rating}}</a></div>
+    {% endfor %}
+{% endblock %}
+

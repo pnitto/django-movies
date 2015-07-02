@@ -4,12 +4,6 @@ import pandas as pd
 
 from django.db import models, migrations
 
-def load_movie_data(apps, schema_editor):
-    movie_data = pd.read_csv('movies.dat', names=["id", "genres","movie_title"])
-
-    for row in movie_data.iterrows():
-        movie_title = row[1]
-
 
 
 class Migration(migrations.Migration):
