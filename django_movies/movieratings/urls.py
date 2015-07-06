@@ -33,4 +33,5 @@ urlpatterns = [
     url(r'^rater-detail/', rater_detail, name="rater_detail"),
     url(r'^movie-detail/', movie_detail, name="movie_detail"),
     url(r'^registration/', user_registration, name="user_registration"),
+    #url(r'^create-rating/$',)
 ]  #(?P<id>\d+)/$'

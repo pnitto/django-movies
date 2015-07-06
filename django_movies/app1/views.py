@@ -5,8 +5,7 @@ from statistics import mean
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
-
-
+from app1.forms import RatingForm
 
 
 def user_registration(request):
@@ -47,14 +46,15 @@ def top_20_movies(request):
             ratings_dict[movie_obj.movie_title] = mean_rating
 
     context = {"movie_list": ratings_dict.items()}
-    #print(context)
     return render_to_response('top_twenty.html', context, context_instance=RequestContext(request))
 
 @login_required
-def rater_detail(request):
-
-    rater = Rater.objects.all()[:10]
-    context = {"rater" : rater}
+def rater_detail(request, user_id):
+    rater = Rater.objects.get(id=user_id)
+    #if request.POST:
+     #   print("It posted!", request.POST)
+    form = RatingForm() #(request.POST)
+    context = {"rater" : rater, "form" : form}
     return render_to_response("rater_detail.html",context,context_instance=RequestContext(request))
 
 @login_required
