@@ -1,4 +1,5 @@
 from django.db import models
+from statistics import mean
 
 class Rater(models.Model):
     age = models.IntegerField()
@@ -7,11 +8,12 @@ class Rater(models.Model):
     postal_code = models.CharField(max_length=30)
 
     def __str__(self):
-        return"{}-{}-{}".format(self.age, self.gender, self.occupation)
+        return"{}-{}-{}".format(self.age, self.gender, self.occupation, self.postal_code)
 
 class Movie(models.Model):
     movie_title = models.TextField(max_length=100)
     genres = models.CharField(max_length=200, default=0)
+
 
     def __str__(self):
         return self.movie_title
@@ -30,4 +32,10 @@ class Rating(models.Model):
     user = models.ForeignKey(Rater)
     movie = models.ForeignKey(Movie)
     movie_rating = models.IntegerField()
+
+    def __str__(self):
+        return "{}-{}-{}".format(self.user, self.movie, self.movie_rating)
+
+
+
 

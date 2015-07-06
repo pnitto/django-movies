@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% for info in movie_info %}
+        <div><a href="{{info.user}}">{{info.user}}</a></div>
+        <div>{{ info.movie }}</div>
+        <div>{{ info.movie_rating }}</div>
+    {% endfor %}
+{% endblock %}

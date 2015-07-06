@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% for rater in rater %}
+        <div>{{ rater.age }}</div>
+        <div>{{ rater.gender }}</div>
+        <div>{{ rater.occupation }}</div>
+        <div>{{ rater.postal_code }}</div>
+    {% endfor %}
+{% endblock %}

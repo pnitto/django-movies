@@ -15,12 +15,22 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.auth.views import login,logout
+from django.core.urlresolvers import reverse_lazy
 from app1.views import top_20_movies
+from app1.views import rater_detail
+from app1.views import movie_detail
+from app1.views import movie_list
+from app1.views import user_registration
 
 
 urlpatterns = [
-    #url(r'^$',),want to create a home page
-    url(r'^toptwenty/', top_20_movies),
-    url(r'^admin/', include(admin.site.urls))
-    #url(r'^detail/(?P<movie_id>\d+)'),
-]
+    url(r'^$', movie_list, name="movie_list"),
+    url(r'^accounts/login/',login, name="login"),
+    url(r'^logout/', logout, {'next_page': '/'}, name="logout"),
+    url(r'^toptwenty/', top_20_movies, name="top_20_movies"),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^rater-detail/', rater_detail, name="rater_detail"),
+    url(r'^movie-detail/', movie_detail, name="movie_detail"),
+    url(r'^registration/', user_registration, name="user_registration"),
+]  #(?P<id>\d+)/$'
