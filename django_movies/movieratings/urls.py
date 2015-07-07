@@ -21,6 +21,7 @@ from app1.views import top_20_movies
 from app1.views import rater_detail
 from app1.views import movie_detail
 from app1.views import movie_list
+from app1.views import create_rating
 from app1.views import user_registration
 
 
@@ -30,8 +31,8 @@ urlpatterns = [
     url(r'^logout/', logout, {'next_page': '/'}, name="logout"),
     url(r'^toptwenty/', top_20_movies, name="top_20_movies"),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^rater-detail/', rater_detail, name="rater_detail"),
+    url(r'^rater-detail/(?P<user_id>\d+)/$', rater_detail, name="rater_detail"),
     url(r'^movie-detail/', movie_detail, name="movie_detail"),
     url(r'^registration/', user_registration, name="user_registration"),
-    #url(r'^create-rating/$',)
+    url(r'^create-rating/$',create_rating, name="create_rating")
 ]  #(?P<id>\d+)/$'

@@ -2,7 +2,7 @@
 
 {% block body %}
     {% for info in movie_info %}
-        <a href="//info.user/{{info.user}}">User</a>
+        <a href="{% url 'rater_detail' info.user.id %}">User</a>
         <div>{{ info.movie }}</div>
         <div>{{ info.movie_rating }}</div>
     {% endfor %}

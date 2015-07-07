@@ -3,17 +3,16 @@
 {% block body %}
     {% if form %}
         <form method="post" action="{% url 'create_rating' %}">
-        {{% csrf_token %}}
+        {% csrf_token %}
         {{ form }}
-        <input type="submit" value="Rating!" />
+        <input type="submit" value="Rate It!" />
         </form>
     {% endif %}
 
-            {% for rater in rater %}
         <div>{{ rater.age }}</div>
         <div>{{ rater.gender }}</div>
         <div>{{ rater.occupation }}</div>
         <div>{{ rater.postal_code }}</div>
-    {% endfor %}
+
 
 {% endblock %}

@@ -37,6 +37,6 @@ class Rating(models.Model):
     def __str__(self):
         return "{}-{}-{}".format(self.user, self.movie, self.movie_rating)
 
-
-
+    class Meta:
+        ordering = ["-movie_rating"]
 
